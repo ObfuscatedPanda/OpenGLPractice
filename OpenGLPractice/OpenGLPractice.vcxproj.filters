@@ -138,6 +138,9 @@
     <ClCompile Include="PlayerPawn.cpp">
       <Filter>Source Files\Entity</Filter>
     </ClCompile>
+    <ClCompile Include="LineCollisionPrimitive.cpp">
+      <Filter>Source Files\CollisionDetection\CollisionPrimitives</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ProgramObject.h">
@@ -238,6 +241,9 @@
     </ClInclude>
     <ClInclude Include="PlayerPawn.h">
       <Filter>Header Files\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="LineCollisionPrimitive.h">
+      <Filter>Header Files\CollisionDetection\CollisionPrimitives</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

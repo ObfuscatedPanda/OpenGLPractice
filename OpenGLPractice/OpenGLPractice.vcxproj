@@ -76,6 +76,7 @@
     <ClCompile Include="InputHandler.cpp" />
     <ClCompile Include="Interval.cpp" />
     <ClCompile Include="Inventory.cpp" />
+    <ClCompile Include="LineCollisionPrimitive.cpp" />
     <ClCompile Include="LinkedList.cpp" />
     <ClCompile Include="LinkedListNode.cpp" />
     <ClCompile Include="main.cpp" />
@@ -112,6 +113,7 @@
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="Interval.h" />
     <ClInclude Include="Inventory.h" />
+    <ClInclude Include="LineCollisionPrimitive.h" />
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="LinkedListNode.h" />
     <ClInclude Include="Mesh.h" />
