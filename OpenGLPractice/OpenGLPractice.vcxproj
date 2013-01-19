@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{DF5FAE6F-E499-485C-87E8-E4F61F1699CF}</ProjectGuid>
+    <RootNamespace>OpenGLPractice</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>OpenGL32.lib;Glu32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="AIController.cpp" />
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="CoarseCollisionManager.cpp" />
+    <ClCompile Include="Collidable.cpp" />
+    <ClCompile Include="CollisionPrimitive.cpp" />
+    <ClCompile Include="Controller.cpp" />
+    <ClCompile Include="ControllerManager.cpp" />
+    <ClCompile Include="CubeCollisionPrimitive.cpp" />
+    <ClCompile Include="CylinderCollisionPrimitive.cpp" />
+    <ClCompile Include="DynamicMesh.cpp" />
+    <ClCompile Include="Entity.cpp" />
+    <ClCompile Include="InputConsumer.cpp" />
+    <ClCompile Include="InputHandler.cpp" />
+    <ClCompile Include="Interval.cpp" />
+    <ClCompile Include="Inventory.cpp" />
+    <ClCompile Include="LinkedList.cpp" />
+    <ClCompile Include="LinkedListNode.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Mesh.cpp" />
+    <ClCompile Include="Pawn.cpp" />
+    <ClCompile Include="PlayerController.cpp" />
+    <ClCompile Include="PlayerEntity.cpp" />
+    <ClCompile Include="PlayerPawn.cpp" />
+    <ClCompile Include="PointCollisionPrimitive.cpp" />
+    <ClCompile Include="ProgramObject.cpp" />
+    <ClCompile Include="Quaternion.cpp" />
+    <ClCompile Include="SphereCollisionPrimitive.cpp" />
+    <ClCompile Include="StaticMesh.cpp" />
+    <ClCompile Include="stb_image.c" />
+    <ClCompile Include="TextureLoader.cpp" />
+    <ClCompile Include="Vector.cpp" />
+    <ClCompile Include="Vector2d.cpp" />
+    <ClCompile Include="Vector3d.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AIController.h" />
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="CoarseCollisionManager.h" />
+    <ClInclude Include="Collidable.h" />
+    <ClInclude Include="CollisionPrimitive.h" />
+    <ClInclude Include="Controller.h" />
+    <ClInclude Include="ControllerManager.h" />
+    <ClInclude Include="CubeCollisionPrimitive.h" />
+    <ClInclude Include="CylinderCollisionPrimitive.h" />
+    <ClInclude Include="DynamicMesh.h" />
+    <ClInclude Include="Entity.h" />
+    <ClInclude Include="Globals.h" />
+    <ClInclude Include="InputConsumer.h" />
+    <ClInclude Include="InputHandler.h" />
+    <ClInclude Include="Interval.h" />
+    <ClInclude Include="Inventory.h" />
+    <ClInclude Include="LinkedList.h" />
+    <ClInclude Include="LinkedListNode.h" />
+    <ClInclude Include="Mesh.h" />
+    <ClInclude Include="Pawn.h" />
+    <ClInclude Include="PlayerController.h" />
+    <ClInclude Include="PlayerEntity.h" />
+    <ClInclude Include="PlayerPawn.h" />
+    <ClInclude Include="PointCollisionPrimitive.h" />
+    <ClInclude Include="ProgramObject.h" />
+    <ClInclude Include="Quaternion.h" />
+    <ClInclude Include="SphereCollisionPrimitive.h" />
+    <ClInclude Include="StaticMesh.h" />
+    <ClInclude Include="stb_image.h" />
+    <ClInclude Include="TextureLoader.h" />
+    <ClInclude Include="Vector.h" />
+    <ClInclude Include="Vector2d.h" />
+    <ClInclude Include="Vector3d.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
