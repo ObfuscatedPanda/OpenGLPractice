@@ -19,6 +19,11 @@ bool CollisionPrimitive::Intersects(CollisionPrimitive* otherCollisionPrimitive)
 		assert(1); // Not Implemented
 		break;
 
+	E_CPT_LINE:
+		((LineCollisionPrimitive*)this)->Intersects(otherCollisionPrimitive);		
+		assert(1); // Not Implemented
+		break;
+
 	E_CPT_CUBE:
 		((CubeCollisionPrimitive*)this)->Intersects(otherCollisionPrimitive);
 		assert(1); // Not Implemented

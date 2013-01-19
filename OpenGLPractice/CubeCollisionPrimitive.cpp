@@ -50,3 +50,24 @@ bool CubeCollisionPrimitive::Intersects(CollisionPrimitive* otherCollisionPrimit
 
 	}
 }
+
+
+bool CubeCollisionPrimitive::IntersectPoint(PointCollisionPrimitive* otherCollisionPrimitive)
+{
+	assert(1); /// Not Implemented
+}
+
+bool CubeCollisionPrimitive::IntersectCube(CubeCollisionPrimitive* otherCollisionPrimitive)
+{
+	assert(1); /// Not Implemented
+}
+
+bool CubeCollisionPrimitive::IntersectCylinder(CylinderCollisionPrimitive* otherCollisionPrimitive)
+{
+	assert(1); /// Not Implemented
+}
+
+bool CubeCollisionPrimitive::IntersectSphere(SphereCollisionPrimitive* otherCollisionPrimitive)
+{
+	assert(1); /// Not Implemented
+}

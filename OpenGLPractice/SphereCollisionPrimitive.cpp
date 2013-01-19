@@ -55,20 +55,34 @@ bool SphereCollisionPrimitive::Intersects(CollisionPrimitive* otherCollisionPrim
 }
 
 
-IntersectsPoint((PointCollisionPrimitive*) otherCollisionPrimitive);
-		PointCollisionPrimitive* otherPoint = (PointCollisionPrimitive*) otherCollisionPrimitive;
-		Vector3d pointPosition = otherPoint->Position();
-		Vector3d positionDifference(this->position.X() - pointPosition.X(),
-									this->position.Y() - pointPosition.Y(),
-									this->position.Z() - pointPosition.Z());
-		return radius > (	positionDifference.X() * positionDifference.X() +
-							positionDifference.Y() * positionDifference.Y() +
-							positionDifference.Z() * positionDifference.Z());
+		
 
 
+bool SphereCollisionPrimitive::IntersectPoint(PointCollisionPrimitive* otherCollisionPrimitive)
+{
+	PointCollisionPrimitive* otherPoint = (PointCollisionPrimitive*) otherCollisionPrimitive;
+	Vector3d pointPosition = otherPoint->Position();
+	Vector3d positionDifference(this->position.X() - pointPosition.X(),
+								this->position.Y() - pointPosition.Y(),
+								this->position.Z() - pointPosition.Z());
+	return radius * radius > (	positionDifference.X() * positionDifference.X() +
+								positionDifference.Y() * positionDifference.Y() +
+								positionDifference.Z() * positionDifference.Z());
+}
 
-		IntersectsSphere((SphereCollisionPrimitive*) otherCollisionPrimitive);	
-		SphereCollisionPrimitive* otherSphere = (SphereCollisionPrimitive*) otherCollisionPrimitive;
+bool SphereCollisionPrimitive::IntersectCube(CubeCollisionPrimitive* otherCollisionPrimitive)
+{
+	assert(1); /// Not Implemented
+}
+
+bool SphereCollisionPrimitive::IntersectCylinder(CylinderCollisionPrimitive* otherCollisionPrimitive)
+{
+	assert(1); /// Not Implemented
+}
+
+bool SphereCollisionPrimitive::IntersectSphere(SphereCollisionPrimitive* otherCollisionPrimitive)
+{   // THIS ISN'T IMPLEMENTED CORRECTLY YET
+	SphereCollisionPrimitive* otherSphere = (SphereCollisionPrimitive*) otherCollisionPrimitive;
 		Vector3d otherSpherePosition = otherSphere->Position();
 		Vector3d positionDifference(this->position.X() - otherSpherePosition.X(),
 									this->position.Y() - otherSpherePosition.Y(),
@@ -76,3 +90,4 @@ IntersectsPoint((PointCollisionPrimitive*) otherCollisionPrimitive);
 		return (this.x - radius) ^ 2 + ... > (	positionDifference.X() * positionDifference.X() +
 							positionDifference.Y() * positionDifference.Y() +
 							positionDifference.Z() * positionDifference.Z());
+}

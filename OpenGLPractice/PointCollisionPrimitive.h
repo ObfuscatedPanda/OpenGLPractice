@@ -11,6 +11,10 @@ public:
 	inline float Radius(void) { return radius; }
 
 private:
+	bool IntersectPoint(PointCollisionPrimitive* otherCollisionPrimitive);
+	bool IntersectCube(CubeCollisionPrimitive* otherCollisionPrimitive);
+	bool IntersectCylinder(CylinderCollisionPrimitive* otherCollisionPrimitive);
+	bool IntersectSphere(SphereCollisionPrimitive* otherCollisionPrimitive);
 	Vector3d position;
 	float radius;
 };

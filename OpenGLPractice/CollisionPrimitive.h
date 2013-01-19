@@ -14,6 +14,7 @@ enum collisionPrimitiveType
 	E_CPT_CYLINDER,
 	E_CPT_CAPSULE,
 	E_CPT_CONE,
+	E_CPT_LINE,
 	E_CPT_NULL
 };
 
