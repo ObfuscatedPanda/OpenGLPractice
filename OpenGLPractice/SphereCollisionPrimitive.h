@@ -17,5 +17,19 @@ private:
 	bool IntersectSphere(SphereCollisionPrimitive* otherCollisionPrimitive);
 	Vector3d position;
 	float radius;
+
+
+/* SPHERE EQUATIONS
+Cartesian Coordinate System
+(x - xo)^2 + (y - yo)^2 + (z - zo)^2 = r^2
+
+Spherical Coordinate System
+r <= ro
+
+Spherical
+
+
+*/
+
 };
 
