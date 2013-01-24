@@ -48,10 +48,10 @@ InputHandler input;
 */
 
 HDC g_HDC;
-float angle = 0.0f;
-float horizontal_pos = 0.0f;
-float legAngle[2] = {0.0f, 0.0f};
-float armAngle[2] = {0.0f, 0.0f};
+SCALAR angle = 0.0f;
+SCALAR horizontal_pos = 0.0f;
+SCALAR legAngle[2] = {0.0f, 0.0f};
+SCALAR armAngle[2] = {0.0f, 0.0f};
 bool fullScreen = false;
 
 /*      Function:       Render
@@ -85,7 +85,7 @@ void Render(Mesh* testMesh, GLuint textureId, stbi_uc* textureData, int textureW
 			move_right = true;
 		}
 
-		horizontal_pos += (float)(move_right? 0.1 : -0.1);
+		horizontal_pos += (SCALAR)(move_right? 0.1 : -0.1);
         /*      Reset after we have completed a circle        */
         if (angle >= 360.0f)
         {
@@ -227,7 +227,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 
                         /*      Time to calculate aspect ratio of
                                 our window.                        */
-                        gluPerspective(54.0f, (GLfloat)width/(GLfloat)height, 1.0f, 1000.0f);
+                        gluPerspective(54.0f, (GLSCALAR)width/(GLSCALAR)height, 1.0f, 1000.0f);
 
                         glMatrixMode(GL_MODELVIEW); //set modelview matrix
                         glLoadIdentity(); //reset modelview matrix

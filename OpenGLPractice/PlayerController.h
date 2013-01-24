@@ -14,16 +14,16 @@ private:
 
 protected:
 	// MOVEMENTS METHODS
-	void MoveUp			(float distance);
-	void MoveForward	(float distance);
-	void MoveDown		(float distance);
-	void MoveBackward	(float distance);
-	void MoveLeft		(float distance);
-	void MoveRight		(float distance);
-	void LookUp			(float angle);
-	void LookDown		(float angle);
-	void LookRight		(float angle);
-	void LookLeft		(float angle);
+	void MoveUp			(SCALAR distance);
+	void MoveForward	(SCALAR distance);
+	void MoveDown		(SCALAR distance);
+	void MoveBackward	(SCALAR distance);
+	void MoveLeft		(SCALAR distance);
+	void MoveRight		(SCALAR distance);
+	void LookUp			(SCALAR angle);
+	void LookDown		(SCALAR angle);
+	void LookRight		(SCALAR angle);
+	void LookLeft		(SCALAR angle);
 
 public:
 	PlayerController(void);

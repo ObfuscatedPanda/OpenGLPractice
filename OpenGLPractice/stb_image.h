@@ -91,12 +91,12 @@
 // appropriately).
 //
 // Additionally, there is a new, parallel interface for loading files as
-// (linear) floats to preserve the full dynamic range:
+// (linear) SCALARs to preserve the full dynamic range:
 //
-//    float *data = stbi_loadf(filename, &x, &y, &n, 0);
+//    SCALAR *data = stbi_loadf(filename, &x, &y, &n, 0);
 // 
 // If you load LDR images through this interface, those images will
-// be promoted to floating point values, run through the inverse of
+// be promoted to SCALARing point values, run through the inverse of
 // constants corresponding to the above:
 //
 //     stbi_ldr_to_hdr_scale(1.0f);
@@ -176,20 +176,20 @@ typedef struct
 extern stbi_uc *stbi_load_from_callbacks  (stbi_io_callbacks const *clbk, void *user, int *x, int *y, int *comp, int req_comp);
 
 #ifndef STBI_NO_HDR
-   extern float *stbi_loadf_from_memory(stbi_uc const *buffer, int len, int *x, int *y, int *comp, int req_comp);
+   extern SCALAR *stbi_loadf_from_memory(stbi_uc const *buffer, int len, int *x, int *y, int *comp, int req_comp);
 
    #ifndef STBI_NO_STDIO
-   extern float *stbi_loadf            (char const *filename,   int *x, int *y, int *comp, int req_comp);
-   extern float *stbi_loadf_from_file  (FILE *f,                int *x, int *y, int *comp, int req_comp);
+   extern SCALAR *stbi_loadf            (char const *filename,   int *x, int *y, int *comp, int req_comp);
+   extern SCALAR *stbi_loadf_from_file  (FILE *f,                int *x, int *y, int *comp, int req_comp);
    #endif
    
-   extern float *stbi_loadf_from_callbacks  (stbi_io_callbacks const *clbk, void *user, int *x, int *y, int *comp, int req_comp);
+   extern SCALAR *stbi_loadf_from_callbacks  (stbi_io_callbacks const *clbk, void *user, int *x, int *y, int *comp, int req_comp);
 
-   extern void   stbi_hdr_to_ldr_gamma(float gamma);
-   extern void   stbi_hdr_to_ldr_scale(float scale);
+   extern void   stbi_hdr_to_ldr_gamma(SCALAR gamma);
+   extern void   stbi_hdr_to_ldr_scale(SCALAR scale);
 
-   extern void   stbi_ldr_to_hdr_gamma(float gamma);
-   extern void   stbi_ldr_to_hdr_scale(float scale);
+   extern void   stbi_ldr_to_hdr_gamma(SCALAR gamma);
+   extern void   stbi_ldr_to_hdr_scale(SCALAR scale);
 #endif // STBI_NO_HDR
 
 // stbi_is_hdr is always defined

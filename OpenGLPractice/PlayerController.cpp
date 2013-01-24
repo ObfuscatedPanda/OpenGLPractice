@@ -20,52 +20,52 @@ PlayerController::~PlayerController(void)
 	// Free remainder of memory
 }
 
-void PlayerController::MoveUp(float distance)
+void PlayerController::MoveUp(SCALAR distance)
 {
 
 }
 
-void PlayerController::MoveForward(float distance)
+void PlayerController::MoveForward(SCALAR distance)
 {
 
 }
 
-void PlayerController::MoveDown(float distance)
+void PlayerController::MoveDown(SCALAR distance)
 {
 
 }
 
-void PlayerController::MoveBackward(float distance)
+void PlayerController::MoveBackward(SCALAR distance)
 {
 
 }
 
-void PlayerController::MoveLeft(float distance)
+void PlayerController::MoveLeft(SCALAR distance)
 {
 
 }
 
-void PlayerController::MoveRight(float distance)
+void PlayerController::MoveRight(SCALAR distance)
 {
 
 }
 
-void PlayerController::LookUp(float angle)
+void PlayerController::LookUp(SCALAR angle)
 {
 
 }
 
-void PlayerController::LookDown(float angle)
+void PlayerController::LookDown(SCALAR angle)
 {
 
 }
 
-void PlayerController::LookRight(float angle)
+void PlayerController::LookRight(SCALAR angle)
 {
 
 }
 
-void PlayerController::LookLeft(float angle)
+void PlayerController::LookLeft(SCALAR angle)
 {
 
 }

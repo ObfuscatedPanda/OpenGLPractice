@@ -4,7 +4,7 @@
 #include "CubeCollisionPrimitive.h"
 #include "SphereCollisionPrimitive.h"
 #include "CylinderCollisionPrimitive.h"
-#include "Vector3D.h"
+#include "Vector.h"
 
 enum collisionPrimitiveType
 {

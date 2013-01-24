@@ -32,8 +32,8 @@ public:
 	~InputHandler(void);
 	int ReadInput(LPARAM lParam);
 	void Init(LPARAM lParam);
-	float xpos;
-	float zpos;
-	float angle;
+	SCALAR xpos;
+	SCALAR zpos;
+	SCALAR angle;
 };
 #endif

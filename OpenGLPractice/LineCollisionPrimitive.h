@@ -1,6 +1,6 @@
 #pragma once
 #include "Collisionprimitive.h"
-#include "Vector3d.h"
+#include "Vector.h"
 
 class LineCollisionPrimitive :
 	public CollisionPrimitive
@@ -15,7 +15,7 @@ private:
 	bool IntersectCube(CubeCollisionPrimitive* otherCollisionPrimitive);
 	bool IntersectCylinder(CylinderCollisionPrimitive* otherCollisionPrimitive);
 	bool IntersectSphere(SphereCollisionPrimitive* otherCollisionPrimitive);
-	Vector3d p1;
-	Vector3d p2;
+	Vector p1;
+	Vector p2;
 };
 

@@ -13,8 +13,8 @@ SphereCollisionPrimitive::~SphereCollisionPrimitive(void)
 bool SphereCollisionPrimitive::Intersects(CollisionPrimitive* otherCollisionPrimitive)
 {
 	assert(E_CPT_SPHERE == otherCollisionPrimitive->PrimitiveType());
-	Vector3d myPosition = this->position;
-	float myRadius = this->radius;
+	Vector myPosition = this->position;
+	SCALAR myRadius = this->radius;
 	bool primitivesIntersect = false;
 
 	switch(otherCollisionPrimitive->PrimitiveType())
@@ -61,13 +61,9 @@ bool SphereCollisionPrimitive::Intersects(CollisionPrimitive* otherCollisionPrim
 bool SphereCollisionPrimitive::IntersectPoint(PointCollisionPrimitive* otherCollisionPrimitive)
 {
 	PointCollisionPrimitive* otherPoint = (PointCollisionPrimitive*) otherCollisionPrimitive;
-	Vector3d pointPosition = otherPoint->Position();
-	Vector3d positionDifference(this->position.X() - pointPosition.X(),
-								this->position.Y() - pointPosition.Y(),
-								this->position.Z() - pointPosition.Z());
-	return radius * radius > (	positionDifference.X() * positionDifference.X() +
-								positionDifference.Y() * positionDifference.Y() +
-								positionDifference.Z() * positionDifference.Z());
+	Vector pointPosition = otherPoint->Position();
+	Vector positionDifference(this->position - pointPosition);
+	return radius * radius > (positionDifference.LengthSquared());
 }
 
 bool SphereCollisionPrimitive::IntersectCube(CubeCollisionPrimitive* otherCollisionPrimitive)
@@ -102,12 +98,8 @@ bool SphereCollisionPrimitive::IntersectCylinder(CylinderCollisionPrimitive* oth
 bool SphereCollisionPrimitive::IntersectSphere(SphereCollisionPrimitive* otherCollisionPrimitive)
 {   
 	SphereCollisionPrimitive* otherSphere = (SphereCollisionPrimitive*) otherCollisionPrimitive;
-	Vector3d otherSpherePosition = otherSphere->Position();
-	float radiusSum = otherSphere->Radius() + radius;
-	Vector3d positionDifference(this->position.X() - otherSpherePosition.X(),
-		this->position.Y() - otherSpherePosition.Y(),
-		this->position.Z() - otherSpherePosition.Z());
-	return radiusSum * radiusSum >= (positionDifference.X() * positionDifference.X() +
-		positionDifference.Y() * positionDifference.Y() +
-		positionDifference.Z() * positionDifference.Z());
+	Vector otherSpherePosition = otherSphere->Position();
+	SCALAR radiusSum = otherSphere->Radius() + radius;
+	Vector positionDifference(this->Position() - otherSpherePosition);
+	return radiusSum * radiusSum >= positionDifference.LengthSquared();
 }

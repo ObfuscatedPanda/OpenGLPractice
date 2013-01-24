@@ -1,0 +1,1 @@
+This is a 3d game/engine. At present, it is very much a work in progress, it is not stable.

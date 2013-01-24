@@ -7,16 +7,16 @@
 #include <gl/glu.h>
 
 #define CHAR_BIT_COUNT			8
-#define CHARS_PER_FLOAT			4
+#define CHARS_PER_SCALAR			4
 #define NUMBER_OF_DIMENSIONS	3
 #define ORDINATES_PER_POLYGON	9
 using namespace std;
 
-#define BITS_PER_FLOAT 32
-float reverse(float value)
+#define BITS_PER_SCALAR 32
+SCALAR reverse(SCALAR value)
 {
-	float reversedValue = 0;
-	for (size_t i = 0; i < BITS_PER_FLOAT; ++i, value = ((int)value >> 1))
+	SCALAR reversedValue = 0;
+	for (size_t i = 0; i < BITS_PER_SCALAR; ++i, value = ((int)value >> 1))
 	reversedValue = ((int)reversedValue << 1) | ((int)value & 0x01);
 	return reversedValue;
 }
@@ -43,14 +43,14 @@ FILE *fp;
 //long size = ftell(fp);
 //fseek(fp, 0, SEEK_SET);
 //
-//float *f = (float *)malloc(sizeof(float)*size);
+//SCALAR *f = (SCALAR *)malloc(sizeof(SCALAR)*size);
 //if(f==NULL)
 //{
 // fclose(fp);
 // return 0;
 //}
 //
-//if(fread(f, sizeof(float), size, fp)!=size)
+//if(fread(f, sizeof(SCALAR), size, fp)!=size)
 //{
 // fclose(fp);
 // return 0;
@@ -66,10 +66,10 @@ int StaticMesh::ReadModelFromFile(char * filepath)
 		return -1;
 	}
 	
-	float floatFileFlags = 0;
+	SCALAR SCALARFileFlags = 0;
 	int fileFlags = 0;
 
-	// 4 chars to make a floating point number
+	// 4 chars to make a SCALARing point number
 	int polyCount = 0;
 
 	ifstream binaryMeshFile (filepath, ios::in|ios::binary);
@@ -79,8 +79,8 @@ int StaticMesh::ReadModelFromFile(char * filepath)
     if(binaryMeshFile.is_open())
     {
 		binaryMeshFile.seekg(0,ios::beg);
-		binaryMeshFile.read((char*)&floatFileFlags,sizeof(floatFileFlags));
-		fileFlags = (int)floatFileFlags;
+		binaryMeshFile.read((char*)&SCALARFileFlags,sizeof(SCALARFileFlags));
+		fileFlags = (int)SCALARFileFlags;
 		ProcessFileFlags(fileFlags, &binaryMeshFile);
 
 		int sectionIndex = 0;
@@ -147,7 +147,7 @@ void StaticMesh::ProcessFileSection(int sectionId, ifstream* binaryFileHandle)
 	}
 	sectionStart= sections[sectionIndex];
 	sectionSize = sectionSizes[sectionIndex];
-	float fSectionSize;
+	SCALAR fSectionSize;
 	// Go to the starting location of the section we are processing
 	binaryFileHandle->seekg(ios::beg + (*sectionStart) * sizeof(char));
 	// Read in the number of entries in this section
@@ -164,7 +164,7 @@ void StaticMesh::ProcessFileSection(int sectionId, ifstream* binaryFileHandle)
 		// There shouldn't be any non-filler entries that are chopped off (i.e. only 0xFFFFFFFF can be chopped off)
 		assert((normalizedSectionSize / 3) == (normalizedSectionSize  - (normalizedSectionSize % 3)) / 3);
 		normalizedSectionSize /= 3;
-		vertices = new Vector3d[normalizedSectionSize];
+		vertices = new Vector[normalizedSectionSize];
 		break;	
 	case FACES_SECTION:
 		// There shouldn't be any non-filler entries that are chopped off (i.e. only 0xFFFFFFFF can be chopped off)
@@ -185,7 +185,7 @@ void StaticMesh::ProcessFileSection(int sectionId, ifstream* binaryFileHandle)
 	binaryFileHandle->seekg(ios::beg + *sectionStart + sizeof(*sectionSize));
 	for(sectionIndex = 0; sectionIndex < normalizedSectionSize; sectionIndex++)
 	{
-		float ordinate = 0;
+		SCALAR ordinate = 0;
 		switch (sectionId)
 		{
 		case VERTICES_SECTION:
@@ -223,10 +223,10 @@ void StaticMesh::ProcessFileFlags(int flags, ifstream* binaryFileHandle)
 		// Is the flag asserted?
 		if (1 == ((flags >> flag) & 0x1))
 		{
-			float fSectionStartLocation = 0;
+			SCALAR fSectionStartLocation = 0;
 			int   sectionStartLocation  = 0;
 			sectionsInFile++;
-			binaryFileHandle->seekg(ios::beg + (flag * sizeof(float)) + sizeof(float));//0,ios::beg + (flag * sizeof(float)));
+			binaryFileHandle->seekg(ios::beg + (flag * sizeof(SCALAR)) + sizeof(SCALAR));//0,ios::beg + (flag * sizeof(SCALAR)));
 			binaryFileHandle->read((char*)&fSectionStartLocation, sizeof(fSectionStartLocation));
 			sectionStartLocation = (int)fSectionStartLocation;
 			*(sections[flag]) = sectionStartLocation;

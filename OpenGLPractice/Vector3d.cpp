@@ -8,7 +8,7 @@ Vector3d::Vector3d(void)
 	ordinates[_Z] = 0;
 }
 
-Vector3d::Vector3d(float _x, float _y = 0, float _z = 0)
+Vector3d::Vector3d(SCALAR _x, SCALAR _y = 0, SCALAR _z = 0)
 {
 	ordinates[_X] = _x;
 	ordinates[_Y] = _y;
@@ -23,7 +23,7 @@ Vector3d::~Vector3d(void)
 
 void Vector3d::Normalize()
 {
-	float magnitude = sqrt(SumOfSquaredComponents());
+	SCALAR magnitude = sqrt(SumOfSquaredComponents());
 	ordinates[_X] /= magnitude;
 	ordinates[_Y] /= magnitude;
 	ordinates[_Z] /= magnitude; 

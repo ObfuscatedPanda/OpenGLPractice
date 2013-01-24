@@ -64,9 +64,9 @@ bool LineCollisionPrimitive::IntersectPoint(PointCollisionPrimitive* otherCollis
 
 	and (x - xo)/a = (y - yo)/b = (z - zo)/c
 	*/
-	float a = 0, b = 0, c = 0;	
-	float t = 0;		// This is the squared value of the actual length
-	float componentDifference [3] =  {p2.X() - p1.X(), p2.Y() - p1.Y(), p2.Z() - p1.Z()};
+	SCALAR a = 0, b = 0, c = 0;	
+	SCALAR t = 0;		// This is the squared value of the actual length
+	SCALAR componentDifference [3] =  {p2.X() - p1.X(), p2.Y() - p1.Y(), p2.Z() - p1.Z()};
 	for(int i = 0; i < 3; i++)
 	{
 		t += (componentDifference[i] * componentDifference[i]);

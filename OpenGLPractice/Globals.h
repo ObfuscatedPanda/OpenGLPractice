@@ -10,6 +10,8 @@ using namespace std;
 #define null 0
 #endif
 
+typedef float SCALAR;
+
 static int totalNewCalls = 0;
 static int successfulNewCalls = 0;
 static int totalDeleteCalls = 0;

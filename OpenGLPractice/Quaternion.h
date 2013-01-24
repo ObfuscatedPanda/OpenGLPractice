@@ -5,22 +5,22 @@ class Quaternion :
 	public ProgramObject
 {
 private:
-	float x;
-	float y;
-	float z;
-	float w;
+	SCALAR x;
+	SCALAR y;
+	SCALAR z;
+	SCALAR w;
 
 public:
 	Quaternion(void);  ~Quaternion(void);
-	inline float X() { return x; }
-	inline float Y() { return y; }
-	inline float Z() { return z; }
-	inline float W() { return w; }
+	inline SCALAR X() { return x; }
+	inline SCALAR Y() { return y; }
+	inline SCALAR Z() { return z; }
+	inline SCALAR W() { return w; }
 
-	inline float SetX(float _x) { x = _x; }
-	inline float SetY(float _y) { y = _y; }
-	inline float SetZ(float _z) { z = _z; }
-	inline float SetW(float _w) { w = _w; }
+	inline SCALAR SetX(SCALAR _x) { x = _x; }
+	inline SCALAR SetY(SCALAR _y) { y = _y; }
+	inline SCALAR SetZ(SCALAR _z) { z = _z; }
+	inline SCALAR SetW(SCALAR _w) { w = _w; }
 	
 	Quaternion & operator*(const Quaternion &rhs);
 

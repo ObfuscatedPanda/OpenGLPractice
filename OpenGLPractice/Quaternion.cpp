@@ -16,7 +16,7 @@ Quaternion::~Quaternion(void)
 
 void Quaternion::Normalize()
 {
-	float magnitude = sqrt((w*w) + (x*x) + (y*y) + (z*z));
+	SCALAR magnitude = sqrt((w*w) + (x*x) + (y*y) + (z*z));
 	w /= magnitude;
 	x /= magnitude;
 	y /= magnitude;
