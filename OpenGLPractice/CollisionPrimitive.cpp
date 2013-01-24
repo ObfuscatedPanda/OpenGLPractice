@@ -24,8 +24,13 @@ bool CollisionPrimitive::Intersects(CollisionPrimitive* otherCollisionPrimitive)
 		assert(1); // Not Implemented
 		break;
 
-	E_CPT_CUBE:
-		((CubeCollisionPrimitive*)this)->Intersects(otherCollisionPrimitive);
+	E_CPT_OBB:
+		((OBBCollisionPrimitive*)this)->Intersects(otherCollisionPrimitive);
+		assert(1); // Not Implemented
+		break;
+		
+	E_CPT_AABB:
+		((AABBCollisionPrimitive*)this)->Intersects(otherCollisionPrimitive);
 		assert(1); // Not Implemented
 		break;
 	

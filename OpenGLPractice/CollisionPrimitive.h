@@ -9,7 +9,8 @@
 enum collisionPrimitiveType
 {
 	E_CPT_POINT,
-	E_CPT_CUBE,
+	E_CPT_OBB,
+	E_CPT_AABB,
 	E_CPT_SPHERE,
 	E_CPT_CYLINDER,
 	E_CPT_CAPSULE,
